@@ -1,55 +1,45 @@
 <template>
   <div class="sidebar-container">
-    <el-menu>
-      <!-- <el-submenu index="1">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>导航一</span>
-        </template>
-        <el-menu-item-group>
-          <template slot="title">分组一</template>
-          <el-menu-item index="1-1">选项1</el-menu-item>
-          <el-menu-item index="1-2">选项2</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="分组2">
-          <el-menu-item index="1-3">选项3</el-menu-item>
-        </el-menu-item-group>
-        <el-submenu index="1-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="1-4-1">选项1</el-menu-item>
-        </el-submenu>
-      </el-submenu>
-      <el-menu-item-group>
-        <span slot="title">分组一</span>
-        <el-menu-item index="1-1">选项1</el-menu-item>
-        <el-menu-item index="1-2">选项2</el-menu-item>
-      </el-menu-item-group> -->
-    <sidebar-item v-for="(item,index) in router" :route="item" :key="item.name"></sidebar-item>
+    <el-menu
+      background-color="rgb(53,65,87)"
+      text-color="rgb(25,37,45)"
+      active-text-color="#fff"
+    >
+      <sidebar-item
+        v-for="(route,index) in routes"
+        :route="route"
+        :key="route.name"
+      ></sidebar-item>
     </el-menu>
   </div>
 </template>
 
 <script>
-import { routeList } from "@/router.js";
+import { sidebar } from "@/router.js";
 export default {
   name: "sidebar-container",
   data() {
     return {
-      router: routeList
+      routes: sidebar
     };
   },
-  created() {
-    console.log(routeList);
-  },
+  created() {},
   components: {
-    sidebarItem:()=>import('comp/sidebarComp/sidebarItem.js')
+    sidebarItem: () => import("comp/sidebarComp/sidebarItem.js")
   }
 };
 </script>
 
 <style lang="scss" scoped>
+@import "assets/style/index.scss";
 .sidebar-container {
-  width: 100px;
+  width: 200px;
+  height: 100vh;
   float: left;
+  background-color: rgb(53, 65, 87);
+  box-shadow: $shadow;
+  .el-menu {
+    border-right: none;
+  }
 }
 </style>
