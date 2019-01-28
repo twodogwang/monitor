@@ -1,5 +1,4 @@
 import Vue from "vue";
-import router from "vue-router";
 
 export default Vue.component("sidebar-item", {
   // functional: true,
@@ -14,7 +13,7 @@ export default Vue.component("sidebar-item", {
             return (
               <el-menu-item
                 onClick={this.push.bind(this, value.name)}
-                index={value.path}
+                index={value.meta.title}
               >
                 <span slot="title">{this.route.meta.title}</span>
               </el-menu-item>
@@ -22,7 +21,7 @@ export default Vue.component("sidebar-item", {
           }
         });
         return (
-          <el-submenu index={route.name}>
+          <el-submenu index={route.meta.title}>
             <span slot="title">{route.meta.title}</span>
             {menuList}
           </el-submenu>
@@ -31,7 +30,7 @@ export default Vue.component("sidebar-item", {
         return (
           <el-menu-item
             onClick={this.push.bind(this, this.route.name)}
-            index={this.route.path}
+            index={this.route.meta.title}
           >
             <span slot="title">{this.route.meta.title}</span>
           </el-menu-item>

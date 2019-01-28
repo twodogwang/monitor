@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
-import router from "./router";
-import store from "./store";
+import router from "./route/router";
+import store from "./store/store";
 import "./plugins/element.js";
 import "./assets/style/index.scss";
 

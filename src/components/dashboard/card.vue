@@ -1,16 +1,10 @@
 <template>
-  <div
-    class="card"
-    :style="cardStyle"
-  >
+  <div class="card" :style="cardStyle">
     <slot>
       <div class="large-area">
-        <p class="title">{{defaultCardContent.large.title}}</p>
+        <p class="title">{{ defaultCardContent.large.title }}</p>
         <p class="point">
-          <count-to
-            :startVal="0"
-            :endVal="defaultCardContent.large.num"
-          ></count-to>
+          <count-to :startVal="0" :endVal="defaultCardContent.large.num"></count-to>
         </p>
       </div>
       <div class="small-area">
@@ -22,10 +16,7 @@
         >
           <p class="title">{{part.title}}</p>
           <p class="point">
-            <count-to
-              :startVal="0"
-              :endVal="part.num"
-            ></count-to>
+            <count-to :startVal="0" :endVal="part.num"></count-to>
           </p>
         </div>
       </div>
@@ -45,7 +36,9 @@ export default {
       default: function() {
         return {
           width: "260px",
-          height: "200px"
+          height: "200px",
+          marginRight: "10px",
+          marginBottom: "10px"
         };
       }
     },
@@ -81,15 +74,20 @@ export default {
   text-align: center;
   display: inline-block;
   position: relative;
+  border-radius: 8px;
   p {
     margin: 0;
   }
   .large-area {
     padding: 20px;
-    height: 120px;
+    height: 62%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     .title {
       font-size: 24px;
       color: $fontColor;
+      margin-bottom: 5px;
     }
     .point {
       color: rgb(65, 164, 244);
@@ -97,20 +95,25 @@ export default {
     }
   }
   .small-area {
-      border-top: 1px solid #99999952;
-      position: absolute;
-      top: 120px;
-      bottom: 0;
-      width: 100%;
-      .small-area-part {
-          display: inline-block;
-          height: 100%;
-          padding: 10px;
-          border-right: 1px solid #99999952;
-          &:last-child {
-              border-right: none;
-          }
+    border-top: 1px solid $borderColor;
+    position: absolute;
+    top: 62%;
+    bottom: 0;
+    width: 100%;
+    .small-area-part {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      padding: 10px;
+      border-right: 1px solid $borderColor;
+      &:last-child {
+        border-right: none;
       }
+      .title {
+        margin-bottom: 5px;
+      }
+    }
   }
 }
 </style>

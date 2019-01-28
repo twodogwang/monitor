@@ -21,17 +21,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import 'assets/style/index.scss';
+@import "assets/style/index.scss";
 .nav-container {
   line-height: 60px;
   padding: 7px;
   box-shadow: $shadow;
   .menu {
-      display: inline-block;
-      float: right;
-      .menu-icon {
-          cursor: pointer;
-      }
+    float: right;
+    .menu-icon {
+      cursor: pointer;
+    }
   }
 }
 </style>
