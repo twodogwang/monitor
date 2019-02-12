@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./route/router";
 import store from "./store/store";
+import "nprogress/nprogress.css";
 import "./plugins/element.js";
 import "./assets/style/index.scss";
 

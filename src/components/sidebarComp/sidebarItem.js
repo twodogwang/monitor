@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Vue from "vue";
 
 export default Vue.component("sidebar-item", {
